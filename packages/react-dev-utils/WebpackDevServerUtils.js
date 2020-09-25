@@ -208,6 +208,8 @@ function createCompiler({
       stats.compilation.warnings.push(...messages.warnings);
 
       if (messages.errors.length > 0) {
+        console.log(chalk.blue("errors\n"));
+        console.log(messages.errors.join('\n\n'));
         if (tscCompileOnError) {
           devSocket.warnings(messages.errors);
         } else {
@@ -218,6 +220,7 @@ function createCompiler({
       }
 
       if (isInteractive) {
+        console.log("yep its interactive")
         clearConsole();
       }
     }
