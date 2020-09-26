@@ -14,7 +14,8 @@
 module.exports = {
   root: true,
 
-  parser: 'babel-eslint',
+  // parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
 
   plugins: ['react'],
 
@@ -27,16 +28,24 @@ module.exports = {
   },
 
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'module',
+    project: "./tsconfig.json",
     ecmaFeatures: {
       jsx: true,
+      module:true
     },
   },
 
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/resolver': {
+      node: {
+        paths: ["src"],
+        extensions: [".js",".jsx",".ts",".tsx"]
+      }
     },
   },
 

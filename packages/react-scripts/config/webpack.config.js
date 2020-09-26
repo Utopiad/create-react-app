@@ -42,7 +42,7 @@ const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
 
-const appEslintConfig = require(paths.appEslintRc)
+console.log("__dirname is: ",__dirname);
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -367,7 +367,7 @@ module.exports = function (webpackEnv) {
                 eslintPath: require.resolve('eslint'),
                 resolvePluginsRelativeTo: __dirname,
                 baseConfig: {
-                  extends: [require.resolve('eslint-config-react-app/base')],
+                  extends: [require.resolve('@utopiad/eslint-config-react-app/base')],
                 },
               },
               loader: require.resolve('eslint-loader'),
