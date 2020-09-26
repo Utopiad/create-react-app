@@ -1,7 +1,7 @@
 {
-  "name": "@utopiad/eslint-config-react-app",
+  "name": "utopiad-custom-eslint-config-react-app",
   "version": "5.3.1",
-  "description": "ESLint configuration used by Create React App",
+  "description": "ESLint configuration used by Utopiad",
   "repository": {
     "type": "git",
     "url": "https://github.com/Utopiad/create-react-app.git",
