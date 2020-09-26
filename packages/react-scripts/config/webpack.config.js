@@ -42,8 +42,6 @@ const postcssNormalize = require('postcss-normalize');
 
 const appPackageJson = require(paths.appPackageJson);
 
-console.log("__dirname is: ",__dirname);
-
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
@@ -650,10 +648,10 @@ module.exports = function (webpackEnv) {
             entry: webpackDevClientEntry,
             // The expected exports are slightly different from what the overlay exports,
             // so an interop is included here to enable feedback on module-level errors.
-            module: require.resolve('react-dev-utils/refreshOverlayInterop'),
+            // module: require.resolve('react-dev-utils/refreshOverlayInterop'),
             // Since we ship a custom dev client and overlay integration,
             // the bundled socket handling logic can be eliminated.
-            sockIntegration: false,
+            // sockIntegration: false,
           },
         }),
       // Watcher doesn't work well if you mistype casing in a path so we use
