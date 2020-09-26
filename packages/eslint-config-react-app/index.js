@@ -24,16 +24,35 @@
 const restrictedGlobals = require('confusing-browser-globals');
 
 module.exports = {
-  extends: [require.resolve('./base')],
+  extends: [
+    require.resolve('./base'),
+    'eslint:recommended',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:react/recommended',
+    'plugin:jsx-a11y/recommended',
+    'prettier/@typescript-eslint',
+    'prettier/react',
+    'prettier',
+  ],
 
-  plugins: ['import', 'flowtype', 'jsx-a11y', 'react-hooks'],
+  // plugins: ['import', 'flowtype', 'jsx-a11y', 'react-hooks'],
+  plugins: [
+    '@typescript-eslint',
+    'react',
+    'simple-import-sort',
+    'jsx-a11y',
+    'prettier',
+  ],
 
   overrides: [
     {
       files: ['**/*.ts?(x)'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        ecmaVersion: 2018,
+        ecmaVersion: 2020,
         sourceType: 'module',
         ecmaFeatures: {
           jsx: true,
@@ -88,6 +107,18 @@ module.exports = {
         ],
         'no-useless-constructor': 'off',
         '@typescript-eslint/no-useless-constructor': 'warn',
+      },
+    },
+    {
+      files: ['*.js', '*.jsx'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off',
+        '@typescript-eslint/restrict-plus-operands': 'off',
+        '@typescript-eslint/restrict-template-expressions': 'off',
       },
     },
   ],
@@ -173,21 +204,14 @@ module.exports = {
       },
     ],
     'no-unused-labels': 'warn',
-    'no-unused-vars': [
-      'warn',
-      {
-        args: 'none',
-        ignoreRestSiblings: true,
-      },
-    ],
-    'no-use-before-define': [
-      'warn',
-      {
-        functions: false,
-        classes: false,
-        variables: false,
-      },
-    ],
+    // 'no-use-before-define': [
+    //   'warn',
+    //   {
+    //     functions: false,
+    //     classes: false,
+    //     variables: false,
+    //   },
+    // ],
     'no-useless-computed-key': 'warn',
     'no-useless-concat': 'warn',
     'no-useless-constructor': 'warn',
@@ -288,5 +312,81 @@ module.exports = {
     'flowtype/define-flow-type': 'warn',
     'flowtype/require-valid-file-annotation': 'warn',
     'flowtype/use-flow-type': 'warn',
+
+    // Our own rules
+    '@typescript-eslint/ban-ts-ignore': 'off',
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    '@typescript-eslint/semi': 'off',
+    'class-methods-use-this': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    // 'import/first': 'error',
+    'import/newline-after-import': 'error',
+    'import/no-cycle': 'off',
+    'import/no-duplicates': 'error',
+    'import/no-named-as-default': 'off',
+    'import/prefer-default-export': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'no-else-return': [
+      'error',
+      {
+        allowElseIf: true,
+      },
+    ],
+    'no-plusplus': 'off',
+    // 'no-restricted-properties': 'off',
+    'no-underscore-dangle': 'off',
+    'no-unused-vars': 'off',
+    'no-use-before-define': 'off',
+    'padded-blocks': ['error', 'never'],
+    'prefer-destructuring': [
+      'error',
+      {
+        object: true,
+        array: false,
+      },
+    ],
+    'prettier/prettier': 'error',
+    'react/destructuring-assignment': 'off',
+    'react/display-name': 'off',
+    'react/forbid-prop-types': [
+      'error',
+      {
+        forbid: ['any'],
+      },
+    ],
+    'react/jsx-curly-newline': 'off',
+    'react/jsx-filename-extension': [
+      'warn',
+      {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    ],
+    'react/jsx-one-expression-per-line': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    'react/prefer-stateless-function': 'off',
+    'react/prop-types': [
+      'warn',
+      {
+        skipUndeclared: true,
+      },
+    ],
+    'react/sort-comp': 'off',
+    'react/state-in-constructor': 'off',
+    'react/static-property-placement': ['warn', 'static public field'],
+    semi: 'off',
+    'simple-import-sort/sort': 'error',
+    'sort-imports': 'off',
   },
 };
