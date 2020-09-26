@@ -367,7 +367,7 @@ module.exports = function (webpackEnv) {
                 eslintPath: require.resolve('eslint'),
                 resolvePluginsRelativeTo: __dirname,
                 baseConfig: {
-                  extends: [require.resolve('@utopiad/eslint-config-react-app/base')],
+                  extends: [require.resolve('utopiad-custom-eslint-config-react-app/base')],
                 },
               },
               loader: require.resolve('eslint-loader'),
