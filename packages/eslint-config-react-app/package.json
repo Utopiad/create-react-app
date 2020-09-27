@@ -1,6 +1,6 @@
 {
   "name": "utopiad-custom-eslint-config-react-app",
-  "version": "5.3.1",
+  "version": "0.0.2",
   "description": "ESLint configuration used by Utopiad",
   "repository": {
     "type": "git",

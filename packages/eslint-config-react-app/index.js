@@ -356,7 +356,7 @@ module.exports = {
         array: false,
       },
     ],
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
     'react/destructuring-assignment': 'off',
     'react/display-name': 'off',
     'react/forbid-prop-types': [
