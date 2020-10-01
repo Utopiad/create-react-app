@@ -334,7 +334,7 @@ module.exports = {
     'import/newline-after-import': 'error',
     'import/no-cycle': 'off',
     'import/no-duplicates': 'error',
-    'import/no-named-as-default': 'off',
+    // 'import/no-named-as-default-member': 'off',
     'import/prefer-default-export': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'no-else-return': [
@@ -356,7 +356,7 @@ module.exports = {
         array: false,
       },
     ],
-    'prettier/prettier': 'warn',
+    'prettier/prettier': 0,
     'react/destructuring-assignment': 'off',
     'react/display-name': 'off',
     'react/forbid-prop-types': [
@@ -388,5 +388,8 @@ module.exports = {
     semi: 'off',
     'simple-import-sort/sort': 'error',
     'sort-imports': 'off',
+    // Otherwise each connected container raises the error
+    // see: https://stackoverflow.com/questions/44437203/how-do-i-resolve-eslint-import-no-named-as-default
+    'import/no-named-as-default-member': 0,
   },
 };
